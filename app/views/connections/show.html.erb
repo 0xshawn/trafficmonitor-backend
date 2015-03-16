@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Local ip:</strong>
+  <%= @connection.local_ip %>
+</p>
+
+<p>
+  <strong>Download speed:</strong>
+  <%= @connection.download_speed %>
+</p>
+
+<p>
+  <strong>Remote ip:</strong>
+  <%= @connection.remote_ip %>
+</p>
+
+<p>
+  <strong>Upload speed:</strong>
+  <%= @connection.upload_speed %>
+</p>
+
+<p>
+  <strong>Total send rate:</strong>
+  <%= @connection.total_send_rate %>
+</p>
+
+<p>
+  <strong>Total receive rate:</strong>
+  <%= @connection.total_receive_rate %>
+</p>
+
+<%= link_to 'Edit', edit_connection_path(@connection) %> |
+<%= link_to 'Back', connections_path %>

@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'daemons'
+
+options = {
+  :dir => '/tmp',
+  :log_output => true
+}
+Daemons.run_proc("trafficmonitor", options) do
+  #file_path = File.expand_path(File.dirname(__FILE__))
+  file_path = '/code/ruby/trafficmonitor-backend/'
+  loop do
+    puts "start trafficmonitor daemon"
+    command =  'cd ' + file_path +
+      ' && RAILS_ENV=development bundler exec rake traffic_monitor:generate_data'
+    output = IO.popen(command).readlines
+    puts command
+    puts output
+    puts 'task finish'
+
+    sleep 5
+  end
+end

@@ -1,0 +1,41 @@
+<%= form_for(@connection) do |f| %>
+  <% if @connection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@connection.errors.count, "error") %> prohibited this connection from being saved:</h2>
+
+      <ul>
+      <% @connection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :local_ip %><br>
+    <%= f.text_field :local_ip %>
+  </div>
+  <div class="field">
+    <%= f.label :download_speed %><br>
+    <%= f.text_field :download_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :remote_ip %><br>
+    <%= f.text_field :remote_ip %>
+  </div>
+  <div class="field">
+    <%= f.label :upload_speed %><br>
+    <%= f.text_field :upload_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :total_send_rate %><br>
+    <%= f.text_field :total_send_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :total_receive_rate %><br>
+    <%= f.text_field :total_receive_rate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
